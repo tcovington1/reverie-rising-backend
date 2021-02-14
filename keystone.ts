@@ -10,7 +10,7 @@ const databaseURL = process.env.DATABASE_URL;
 const sessionConfig = {
   // how long does user stay signed in?
   maxAge: 60 * 60 * 24 * 360,
-  secret: process.env.CCOOKIE_SECRET
+  secret: process.env.COOKIE_SECRET
 };
 
 const { withAuth } = createAuth({
@@ -18,7 +18,7 @@ const { withAuth } = createAuth({
   identityField: 'email',
   secretField: 'password',
   initFirstItem: {
-    fields: ['name', 'email', 'password'],
+    fields: ['firstName', 'lastName', 'email', 'password'],
     // TODO add in initial roles here
   }
 })
@@ -43,7 +43,7 @@ export default withAuth(config({
   ui: {
     // How UI for anyone who passes this test
     isAccessAllowed: ({ session }) => {
-      console.log(session);
+      // console.log(session);
       return !!session?.data;
     },
   },
