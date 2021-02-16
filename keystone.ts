@@ -5,6 +5,7 @@ import { createAuth } from '@keystone-next/auth';
 import { User } from './schemas/User'
 import { Product } from './schemas/Product'
 import { ProductImage } from './schemas/ProductImage'
+import { Post } from './schemas/Post'
 
 
 const databaseURL = process.env.DATABASE_URL;
@@ -43,6 +44,7 @@ export default withAuth(config({
     User,
     Product,
     ProductImage,
+    Post
   }),
   ui: {
     // How UI for anyone who passes this test
